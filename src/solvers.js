@@ -102,8 +102,8 @@ window.findNQueensSolution = function(n) {
       if (!board.hasAnyQueensConflicts()) {
         qN += 1; 
         var newIndices = this.nextSpace(rowIndex, colIndex, n);      //
-        var firstIt = recurse(board, qN, newIndices[0], newIndices[1]);
-        if (firstIt) {
+        var success = recurse(board, qN, newIndices[0], newIndices[1]);
+        if (success) {
           return board.rows();
         }
         board.togglePiece(rowIndex, colIndex);
@@ -150,7 +150,6 @@ window.countNQueensSolutions = function(n) {
     }  
   };
   recurse(newBoard, 0, 0, 0);
-  // console.log('Number of solutions for ' + n + ' queens:', solutionCount);
   return solutionCount;
 };
 
